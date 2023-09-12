@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 class BodyLocalisation extends StatefulWidget {
   const BodyLocalisation({super.key});
@@ -12,54 +13,59 @@ class _BodyLocalisationState extends State<BodyLocalisation> {
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        Container(),
-        Column(
-          children: [
-            Container(
-              alignment: Alignment.center,
-              height: 50.0,
-              child: ElevatedButton.icon(
-                style: ElevatedButton.styleFrom(
-                    backgroundColor: Color(0x882A2A2A),
-                    fixedSize: Size.fromWidth(
-                        MediaQuery.of(context).size.width - 20.0)),
-                onPressed: (() => {}),
-                label: const Text('Entrer un emplacement'),
-                icon: const Icon(Icons.search),
-              ),
+        GoogleMap(
+          initialCameraPosition: const CameraPosition(
+            target: LatLng(-4.325, 15.322222),
+            zoom: 14.0,
+          ),
+          markers: <Marker>{
+            const Marker(
+              markerId: MarkerId('vehicleMarker'),
+              position: LatLng(-4.325, 15.322222),
+              infoWindow: InfoWindow(title: 'Véhicule'),
             ),
-            Container(
-              height: MediaQuery.of(context).size.height / 6,
-              margin:
-                  const EdgeInsets.only(left: 10.0, right: 10.0, bottom: 10.0),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(10.0),
-                color: Colors.blue[900],
-              ),
-              child: Container(
-                padding: EdgeInsets.all(10.0),
-                child: const Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    TextField(
-                      decoration: InputDecoration(
-                        labelText: 'Arrêt de départ',
-                        labelStyle: TextStyle(color: Colors.white),
-                      ),
-                    ),
-                    TextField(
-                      decoration: InputDecoration(
-                        labelText: 'Arrêt d\'arrivé',
-                        labelStyle: TextStyle(color: Colors.white),
-                        border: InputBorder.none,
-                      ),
-                    ),
-                  ],
+          },
+        ),
+        Positioned(
+          top: 16.0,
+          left: 16.0,
+          right: 16.0,
+          child: Column(
+            children: [
+              TextField(
+                decoration: InputDecoration(
+                  labelText: "Arrêt de départ",
+                  filled: true,
+                  fillColor: Colors.grey[200],
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(10.0),
+                    borderSide: BorderSide.none,
+                  ),
+                  prefixIcon: const Icon(Icons.location_on),
                 ),
+                onChanged: (value) {
+                  // Stocke la valeur dans une variable pour une utilisation ultérieure
+                },
               ),
-            )
-          ],
-        )
+              const SizedBox(height: 16.0),
+              TextField(
+                decoration: InputDecoration(
+                  labelText: "Arrêt d'arrivée",
+                  filled: true,
+                  fillColor: Colors.grey[200],
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(10.0),
+                    borderSide: BorderSide.none,
+                  ),
+                  prefixIcon: const Icon(Icons.location_on),
+                ),
+                onChanged: (value) {
+                  // Stocke la valeur dans une variable pour une utilisation ultérieure
+                },
+              ),
+            ],
+          ),
+        ),
       ],
     );
   }
