@@ -2,16 +2,13 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:trafic_app/View/Home/Widgets/menu.dart';
-import 'package:trafic_app/View/Partials/header.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    HeaderSection header = HeaderSection();
     return Scaffold(
-      appBar: header.getAppBar('Accueil'),
       backgroundColor: Colors.white,
       body: Container(
         width: MediaQuery.of(context).size.width,
