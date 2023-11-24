@@ -49,5 +49,12 @@
 	<true/>
 	<key>GMSApiKey</key>
     <string>AIzaSyC7ZaY_7ovnhcJnH7FeBE4UpvOhpTPA0IM</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>Cette application a besoin d'accéder à votre localisation en permanence pour vous fournir des fonctionnalités basées sur la géolocalisation.</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Cette application a besoin d'accéder à votre localisation lorsque vous l'utilisez pour afficher des informations basées sur votre position actuelle.</string>
+	<key>NSLocationUsageDescription</key>
+	<string>Cette application a besoin d'accéder à votre localisation lorsque vous l'utilisez pour afficher des informations basées sur votre position actuelle.</string>
+
 </dict>
 </plist>

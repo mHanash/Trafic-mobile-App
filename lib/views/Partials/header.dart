@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:trafic_app/View/Partials/navbar.dart';
-import 'package:trafic_app/View/Widgets/search.dart';
+import 'package:trafic_app/views/Partials/navbar.dart';
+import 'package:trafic_app/views/Widgets/search.dart';
 
 class HeaderSection extends StatefulWidget {
   const HeaderSection({super.key});
@@ -39,7 +39,7 @@ class _HeaderSectionState extends State<HeaderSection> {
             NavbarSection(),
             SearchSection(),
           ],
-        )
+        ),
       ],
     );
   }

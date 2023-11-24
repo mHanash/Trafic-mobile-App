@@ -38,7 +38,7 @@ class _SearchSectionState extends State<SearchSection> {
                 color: const Color(0xFF5F67EA),
               ),
               child: const Icon(
-                Icons.mic_outlined,
+                Icons.location_on,
                 size: 25,
                 color: Colors.white,
               ),

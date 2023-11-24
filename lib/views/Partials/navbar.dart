@@ -12,7 +12,10 @@ class _NavbarSectionState extends State<NavbarSection> {
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.only(
-          top: MediaQuery.of(context).padding.top, left: 25, right: 25),
+          top: MediaQuery.of(context).padding.top,
+          left: 25,
+          right: 25,
+          bottom: 10),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
@@ -20,7 +23,7 @@ class _NavbarSectionState extends State<NavbarSection> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                "Welcome,",
+                "Bienvenu(e),",
                 style: TextStyle(
                     color: Colors.white,
                     fontSize: 22,
@@ -28,7 +31,7 @@ class _NavbarSectionState extends State<NavbarSection> {
               ),
               SizedBox(height: 5),
               Text(
-                "What would you like to play ?",
+                "On te dépose quelque part ?",
                 style: TextStyle(
                   color: Colors.white,
                   fontSize: 19,

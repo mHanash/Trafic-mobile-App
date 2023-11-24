@@ -14,14 +14,15 @@ class _FooterSectionState extends State<FooterSection> {
       decoration: BoxDecoration(
         boxShadow: [
           BoxShadow(
-              color: Colors.grey.withOpacity(0.2),
-              spreadRadius: 5,
-              blurRadius: 10)
+            color: Colors.grey.withOpacity(0.2),
+            spreadRadius: 5,
+            blurRadius: 10,
+          )
         ],
       ),
       child: ClipRRect(
-        borderRadius: const BorderRadius.only(
-            topLeft: Radius.circular(30), topRight: Radius.circular(30)),
+        // borderRadius: const BorderRadius.only(
+        //     topLeft: Radius.circular(30), topRight: Radius.circular(30)),
         child: BottomNavigationBar(
           selectedFontSize: 12,
           unselectedFontSize: 12,
