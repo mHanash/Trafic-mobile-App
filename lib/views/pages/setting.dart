@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:trafic_app/helpers/colors.dart';
 import 'package:trafic_app/viewmodels/auth_viewmodel.dart';
-import 'package:trafic_app/views/auth/login.dart';
 
 class Setting extends StatefulWidget {
   const Setting({super.key});
@@ -13,21 +12,21 @@ class Setting extends StatefulWidget {
 
 class _SettingState extends State<Setting> {
   TextEditingController _emailController = TextEditingController();
-  TextEditingController _passwordController = TextEditingController();
+  TextEditingController _usernameController = TextEditingController();
   TextEditingController _otherInfoController = TextEditingController();
 
   @override
   void initState() {
     super.initState();
-    _emailController.text = 'utilisateur@example.com';
-    _passwordController.text = '********';
-    _otherInfoController.text = 'Informations supplémentaires ici...';
+    _emailController.text = '';
+    _usernameController.text = '';
+    _otherInfoController.text = '';
   }
 
   @override
   void dispose() {
     _emailController.dispose();
-    _passwordController.dispose();
+    _usernameController.dispose();
     _otherInfoController.dispose();
     super.dispose();
   }
@@ -35,7 +34,11 @@ class _SettingState extends State<Setting> {
   @override
   Widget build(BuildContext context) {
     final authViewModel = Provider.of<AuthViewModel>(context);
-
+    setState(() {
+      _emailController.text = authViewModel.userAuth?.email ?? 'Email';
+      _usernameController.text = authViewModel.userAuth?.username ?? 'Username';
+      _otherInfoController.text = authViewModel.userAuth?.work ?? 'Work';
+    });
     return Container(
       color: Color(whiteColor),
       height: MediaQuery.of(context).size.height,
@@ -62,14 +65,14 @@ class _SettingState extends State<Setting> {
             ),
             SizedBox(height: 16),
             Text(
-              'Mot de passe',
+              'Nom d\'utilisateur',
               style: TextStyle(
                 fontSize: 18,
                 fontWeight: FontWeight.bold,
               ),
             ),
             TextField(
-              controller: _passwordController,
+              controller: _usernameController,
             ),
             SizedBox(height: 16),
             Text(

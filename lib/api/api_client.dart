@@ -71,9 +71,7 @@ class ApiClient {
     if (response.statusCode == 200) {
       final responseData = json.decode(response.body);
 
-      // Récupérez le token JWT de la réponse
-      final token = responseData['token'];
-      return token;
+      return responseData;
     } else {
       throw Exception('Failed to login: ${response.statusCode}');
     }

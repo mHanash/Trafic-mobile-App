@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_typeahead/flutter_typeahead.dart';
 import 'package:trafic_app/helpers/colors.dart';
 import 'package:trafic_app/services/data_service.dart';
-import 'package:trafic_app/views/Widgets/empty.dart';
 import 'package:trafic_app/views/pages/view_vehicle.dart';
 
 class HomePassager extends StatefulWidget {
@@ -67,7 +66,6 @@ class _HomePassagerState extends State<HomePassager> {
                       );
                     },
                     onSuggestionSelected: (suggestion) {
-                      print('suggestion : ' + suggestion);
                       setState(() {
                         _textEditingLigneController.text = suggestion;
                       });
@@ -78,7 +76,7 @@ class _HomePassagerState extends State<HomePassager> {
                   ),
                   Positioned(
                     right: 12,
-                    bottom: 10,
+                    bottom: 7,
                     child: Container(
                       padding: const EdgeInsets.all(5),
                       decoration: BoxDecoration(
@@ -135,7 +133,6 @@ class _HomePassagerState extends State<HomePassager> {
                       );
                     },
                     onSuggestionSelected: (suggestion) {
-                      print('suggestion : ' + suggestion);
                       setState(() {
                         _textEditingStartPositionController.text = suggestion;
                       });
@@ -146,7 +143,7 @@ class _HomePassagerState extends State<HomePassager> {
                   ),
                   Positioned(
                     right: 12,
-                    bottom: 10,
+                    bottom: 7,
                     child: Container(
                       padding: const EdgeInsets.all(5),
                       decoration: BoxDecoration(
@@ -202,7 +199,6 @@ class _HomePassagerState extends State<HomePassager> {
                       );
                     },
                     onSuggestionSelected: (suggestion) {
-                      print('suggestion : ' + suggestion);
                       setState(() {
                         _textEditingEndPositionController.text = suggestion;
                       });
@@ -213,7 +209,7 @@ class _HomePassagerState extends State<HomePassager> {
                   ),
                   Positioned(
                     right: 12,
-                    bottom: 5,
+                    bottom: 7,
                     child: Container(
                       padding: const EdgeInsets.all(5),
                       decoration: BoxDecoration(

@@ -29,6 +29,9 @@ class _BodyState extends State<Body> {
         backgroundColor: Color(primaryColor),
         body: Column(
           children: [
+            SizedBox(
+              height: 10.0,
+            ),
             NavbarSection(),
             Expanded(
               child: Container(

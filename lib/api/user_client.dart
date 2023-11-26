@@ -3,22 +3,15 @@ import 'package:trafic_app/models/user_model.dart';
 import 'api_client.dart';
 
 class UserClient {
-  static Future<UserModel> fetchUser(int userId) async {
+  static Future<UserModel?> fetchUser(int userId) async {
     try {
-      final response = await ApiClient.get('/users/$userId');
-      final userData = response['data'];
-
-      return UserModel(
-        id: userData['id'],
-        username: userData['username'],
-        email: userData['email'],
-        work: userData['work'],
-        vehicleNumber: userData['vehicleNumber'],
-        isVehicle: userData['isVehicle'],
-      );
+      final response = await ApiClient.get('/users/$userId',
+          headers: {"Content-Type": "application/json"});
+      final userData = response;
+      return UserModel.fromJson(userData);
     } catch (e) {
       // Gérer les erreurs d'appel API
-      throw Exception('Failed to fetch user: $e');
+      return null;
     }
   }
 
@@ -31,7 +24,7 @@ class UserClient {
   ) async {
     String otherLabel = '';
     if (isVehicle) {
-      otherLabel = 'vehicule_number';
+      otherLabel = 'vehicle_number';
     } else {
       otherLabel = 'work';
     }
@@ -81,7 +74,7 @@ class UserClient {
           body: body, headers: {"Content-Type": "application/json"});
     } catch (e) {
       // Gérer les erreurs d'appel API
-      throw Exception('Failed to update user: $e');
+      throw Exception('Failed to login: $e');
     }
   }
 }

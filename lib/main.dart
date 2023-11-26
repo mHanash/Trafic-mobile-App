@@ -4,6 +4,7 @@ import 'package:trafic_app/viewmodels/auth_viewmodel.dart';
 import 'package:trafic_app/viewmodels/user_viewmodel.dart';
 import 'package:trafic_app/views/Widgets/loader.dart';
 import 'package:trafic_app/views/auth/login.dart';
+import 'package:trafic_app/views/auth/register.dart';
 import 'package:trafic_app/views/body.dart';
 
 void main() {
@@ -30,13 +31,9 @@ class App extends StatefulWidget {
 }
 
 class _AppState extends State<App> {
-  late Future<bool> _tokenFuture;
-
   @override
   void initState() {
     super.initState();
-    final authViewModel = Provider.of<AuthViewModel>(context, listen: false);
-    _tokenFuture = authViewModel.getToken();
   }
 
   @override
@@ -47,7 +44,11 @@ class _AppState extends State<App> {
           future: authViewModel.getToken(),
           builder: (context, snapshot) {
             if (snapshot.connectionState == ConnectionState.waiting) {
-              return const Loader();
+              return const MaterialApp(
+                title: 'Trafic App',
+                debugShowCheckedModeBanner: false,
+                home: Loader(),
+              );
             } else {
               if (snapshot.hasData && snapshot.data!) {
                 return const MaterialApp(
@@ -56,10 +57,10 @@ class _AppState extends State<App> {
                   home: Body(),
                 );
               } else {
-                return const MaterialApp(
+                return MaterialApp(
                   title: 'Trafic App',
                   debugShowCheckedModeBanner: false,
-                  home: LoginPage(),
+                  home: authViewModel.subscribe ? RegisterPage() : LoginPage(),
                 );
               }
             }

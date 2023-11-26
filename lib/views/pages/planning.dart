@@ -66,7 +66,6 @@ class _PlanningState extends State<Planning> {
                       );
                     },
                     onSuggestionSelected: (suggestion) {
-                      print('suggestion : ' + suggestion);
                       setState(() {
                         _textEditingLigneController.text = suggestion;
                       });
@@ -134,7 +133,6 @@ class _PlanningState extends State<Planning> {
                       );
                     },
                     onSuggestionSelected: (suggestion) {
-                      print('suggestion : ' + suggestion);
                       setState(() {
                         _textEditingStartPositionController.text = suggestion;
                       });
@@ -201,7 +199,6 @@ class _PlanningState extends State<Planning> {
                       );
                     },
                     onSuggestionSelected: (suggestion) {
-                      print('suggestion : ' + suggestion);
                       setState(() {
                         _textEditingEndPositionController.text = suggestion;
                       });

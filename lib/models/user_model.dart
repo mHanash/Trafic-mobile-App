@@ -2,9 +2,9 @@ class UserModel {
   int id;
   String username;
   String email;
-  String isVehicle;
-  String work;
-  String vehicleNumber;
+  bool? isVehicle;
+  String? work;
+  String? vehicleNumber;
 
   UserModel({
     required this.id,
@@ -21,8 +21,8 @@ class UserModel {
       username: json['username'],
       email: json['email'],
       isVehicle: json['isVehicle'],
-      work: json['work'],
-      vehicleNumber: json['vehicle_number'],
+      work: json['work'] ?? '',
+      vehicleNumber: json['vehicle_number'] ?? '',
     );
   }
 

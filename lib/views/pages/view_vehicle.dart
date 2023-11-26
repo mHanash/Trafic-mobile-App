@@ -27,7 +27,6 @@ class _ViewVehicleState extends State<ViewVehicle> {
     setState(() {
       pGoogleMaps = LatLng(locationService.getLatitudeValue(),
           locationService.getLongitudeValue());
-      print("ZENAS");
     });
     return MultiProvider(
       providers: [
